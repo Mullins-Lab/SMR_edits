@@ -1,15 +1,12 @@
+#load essential libraries
 library(vroom)
 library(tidyverse)
 library(dplyr)
 
 #read the files, esi, epi and my snp lists and rename columns as fit
-#finemap <- read.table('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/data/finemapped_snps_tableS4.txt', h=F)
-finemap <- read.table('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/data/finemap_extra_snp_noLD.txt', h=F)
+finemap <- read.table('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/data/finemapped_snps_tableS4.txt', h=F)
 probes <- vroom('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/BrainMeta_cis_eqtl_summary/BrainMeta_cis_eQTL_full.epi', col_names=FALSE)
 snps_esi <- vroom('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/BrainMeta_cis_eqtl_summary/BrainMeta_cis_eQTL_full.esi', col_names=FALSE)
-
-#probes <- vroom('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/BrainMeta_cis_sqtl_summary/BrainMeta_cis_sQTL_full.epi', col_names=FALSE)
-#snps_esi <- vroom('/sc/arion/projects/psychgen/bipolar/fine-mapping/smr/BrainMeta_cis_sqtl_summary/BrainMeta_cis_sQTL_full.esi', col_names=FALSE)
 
 colnames(finemap)[1]="SNP"
 colnames(snps_esi)[2]="SNP"
