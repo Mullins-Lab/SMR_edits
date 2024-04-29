@@ -8,4 +8,4 @@ Basic steps include:
 
 Inputs needed:
 - GWAS summary statistics in a [GCTA COJO format](https://yanglab.westlake.edu.cn/software/smr/#SMR&HEIDIanalysis).
-- List of fine-mapped SNPs (just the rsIDs) in a tab-delimited txt file.
+- List of fine-mapped SNPs (just the rsIDs and chromosome numbers) in a tab-delimited formatted file (.tsv or .txt).
