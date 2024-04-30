@@ -3,7 +3,7 @@ This code was implemented as part of [PGC3 BD Fine-mapping preprint](https://www
 
 Basic steps include: 
  - prepare the locus file by extracting QTL regions around the fine-mapped SNPs,
- - 'force' these fine-mapped regions to be the QTL instruments in the SMR analysis,
+ - 'force' these fine-mapped SNPs to be the QTL instruments in the SMR analysis,
  - run SMR analysis and filter the results accordingly.
 
 Inputs needed:
