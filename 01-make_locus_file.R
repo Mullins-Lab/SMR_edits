@@ -18,7 +18,7 @@ colnames(snps_esi)[1]="CHR"
 
 #merge the snp list with the esi file
 merge_snps <- merge(snps_esi, finemap, by="SNP")
-dim(merge_snps)  #25 from the list found in there
+dim(merge_snps)  
 colnames(merge_snps)[4]="POS"
 
 #add half 2 Mb to the POS column on each end in the merge_snps df
