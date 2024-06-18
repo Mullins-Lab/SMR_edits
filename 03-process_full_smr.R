@@ -13,12 +13,12 @@ print(sapply(dat,class))
 unique_probes <- unique(dat$probeID)
 n_distinct(dat$probeID)
 
-##subtract -1 for multiple headers: ie if 2258 --> 2257, only if multiple headers have not been removed.
-##calculate bonferroni correction
-##ie: 0.05/2257 = 2.21533e-05
+##filter on p_eQTL value (should be GWS)
+dat_eqtl <- dat %>% filter(p_eQTL < 5E-08)
 
-##filter by adding the correct Bonferronic correction in each case
-dat_eqtl <- dat %>% filter(p_eQTL < 5E-08 & p_SMR < 2.21533E-05 & p_HEIDI >= 0.01)
+##apply bonferroni correction on p_SMR according to the N of remaining snp-probe pairs and the p_HEIDI value
+correct_p_SMR = 0.05/nrow(dat_eqtl)
+dat_final <- dat_eqtl %>% filter(p_SMR < correct_p_SMR & p_HEIDI >= 0.01)
 
 ##write a table
-write.table(dat_eqtl, 'results_2Mb_sqtl/bd_pgc3_BrainMeta_cis_sQTL_2Mb_full_significant_2.smr',  sep = "\t", row.names = FALSE, quote=FALSE)
+write.table(dat_final, 'results_2Mb_sqtl/bd_pgc3_BrainMeta_cis_sQTL_2Mb_full_significant_2.smr',  sep = "\t", row.names = FALSE, quote=FALSE)
